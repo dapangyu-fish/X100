@@ -39,7 +39,7 @@ const Welcome = () => {
             className="flex flex-row justify-center items-center my-5 bg-[#2952e3] p-3 rounded-full cursor-pointer hover:bg-[#2546bd]"
           >
             <p className="text-white text-base font-semibold">
-                Connect Wallet
+              Connect Wallet
             </p>
           </button>
           <div className="grid sm:grid-cols-3 grid-cols-2 w-full mt-10">
@@ -85,7 +85,7 @@ const Welcome = () => {
               <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={()=>{}} />
               <Input placeholder="Enter Message" name="message" type="text" handleChange={()=>{}} />
               <div className="h-[1px] w-full bg-gray-400 my-2"/>
-              {false ? ( <Loader />
+              {true ? ( <Loader />
               ) : (
                 <button
                   type="button"
