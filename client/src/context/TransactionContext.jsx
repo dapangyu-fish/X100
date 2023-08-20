@@ -8,7 +8,7 @@ export const TransactionContext = React.createContext();
 
 const { ethereum } = window;
 
-const getEthereumContrach = () => {
+const getEthereumContract = () => {
     const provider = new ethers.providers.Web3Provider(ethereum);
     const singer = provider.getSigner();
     const transactionContract = new ethers.Contract(contractAddress,contractABI,singer);
@@ -17,13 +17,14 @@ const getEthereumContrach = () => {
         provider,
         singer,
         transactionContract
-    })
+    }) 
 }
 
-export const TransactionProvier = ({ children }) =>{
+export const TransactionProvider = ({ children }) => {
     return (
-        <TransactionProvier.Prvoder value={{value:'test'}}>
+        <TransactionContext.Provider value={{value:'test',}}>
             {children}
-        </TransactionProvier.Prvoder>
+        </TransactionContext.Provider>
     );
 }
+
