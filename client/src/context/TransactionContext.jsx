@@ -21,7 +21,7 @@ const getEthereumContract = () => {
 }
 
 export const TransactionProvider = ({ children }) => {
-
+    const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () =>{
         if(!ethereum) return alert("Please insall metamask");
