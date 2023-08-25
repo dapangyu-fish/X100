@@ -61,14 +61,12 @@ cat <<EOF >> ~/geth.json
     "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
     "timestamp"  : "0x00"
 }
-fi
 EOF
 
 geth --datadir ~/nodedata --networkid 43282 init ~/geth.json
 geth --datadir ~/nodedata account new # 生成密码 passwd
 cat <<EOF >> ~/passwd
 passwd
-fi
 EOF
 
 cat <<EOF >> ~/start.sh
