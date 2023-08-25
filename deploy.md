@@ -4,7 +4,7 @@
 docker run -itd --restart=always --net=host --name=geth-01 ubuntu
 docker exec -it geth-01 bash
 #!/bin/bash
-apt update && apt install wget vim -y
+apt update && apt install wget vim screen -y
 wget https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.11.6-ea9e62ca.tar.gz
 tar -zxvf geth-linux-amd64-1.11.6-ea9e62ca.tar.gz
 mv geth-linux-amd64-1.11.6-ea9e62ca/geth /bin/geth
