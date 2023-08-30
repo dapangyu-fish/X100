@@ -73,6 +73,40 @@ cat <<EOF >> ~/start.sh
 geth  --ethash.cachedir ~/Ethash --ethash.dagdir ~/Ethash --allow-insecure-unlock  --unlock=0  --password  ~/passwd  --networkid  43282  --datadir  ~/nodedata  --http --http.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --http.corsdomain="*" --http.port=8545 --http.addr="0.0.0.0"  --ws --ws.addr "0.0.0.0" --ws.port=8546 --ws.origins "*" --ws.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --syncmode full console
 EOF
 
-chmod +x start.sh
+chmod +x ~/start_geth.sh
+
+screen -R geth
+bash
+~/start_geth.sh
+#shift+a and d to exit
+
+```
+
+# 部署blockscout
+
+```bash
+mkdir ~/deploy
+cd ~/deploy
+git clone https://github.com/blockscout/blockscout
+
+cat <<EOF >> ~/start_blockscout.sh
+export COIN=ETH
+export ETHEREUM_JSONRPC_VARIANT=geth
+export ETHEREUM_JSONRPC_HTTP_URL="http://192.168.111.119:8545"
+export ETHEREUM_JSONRPC_WS_URL="ws://192.168.111.119:8546"
+export ETHEREUM_JSONRPC_TRACE_URL="http://192.168.111.119:8545"
+export BLOCK_TRANSFORMER=base
+export NETWORK=Ethereum
+export SUBNETWORK=ETH
+export MIX_ENV=prod
+export ECTO_USE_SSL=false
+make start
+EOF
+
+
+screen -R blockscout
+bash
+~/start_blockscout.sh
+#shift+a and d to exit
 
 ```
