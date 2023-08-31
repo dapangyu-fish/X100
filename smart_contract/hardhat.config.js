@@ -5,9 +5,9 @@ require('@nomiclabs/hardhat-waffle');
 module.exports = {
   solidity: '0.8.0',
   networks: {
-    ropsten: {
+    private: {
       url: 'http://192.168.111.119:8545',
-      accounts: ['c091272d027fbd0b8716c64f4d8ba630967f58a4e1e6b7e61c567dd6e71af990'],
+      accounts: ['25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e'],
     },
   },
 };

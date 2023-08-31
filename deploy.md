@@ -73,7 +73,7 @@ cat <<EOF >> ~/start.sh
 geth  --ethash.cachedir ~/Ethash --ethash.dagdir ~/Ethash --allow-insecure-unlock  --unlock=0  --password  ~/passwd  --networkid  43282  --datadir  ~/nodedata  --http --http.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --http.corsdomain="*" --http.port=8545 --http.addr="0.0.0.0"  --ws --ws.addr "0.0.0.0" --ws.port=8546 --ws.origins "*" --ws.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --mine --miner.threads=2 --miner.etherbase="0x9feee155032dCcD5F090299416E02f986919E1ad" --syncmode full console
 EOF
 
-chmod +x ~/start_geth.sh
+chmod +x ~/start.sh
 
 screen -R geth
 bash
@@ -108,5 +108,16 @@ screen -R blockscout
 bash
 ~/start_blockscout.sh
 #shift+a and d to exit
+
+```
+
+
+# 配置
+```bash
+docker exec -it geth-01 bash
+geth attach http://192.168.111.119:8545 # 需要使用http协议进入,因为上面的启动命令中ipc没有加入部分api(personal等)
+
+eth.accounts # 获取所有账户
+personal.newAccount() # 测试用密码都设置成passwd
 
 ```
