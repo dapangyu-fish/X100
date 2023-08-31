@@ -12,31 +12,6 @@ rm -rf geth-linux-amd64-1.11.6-ea9e62ca
 rm -rf geth-linux-amd64-1.11.6-ea9e62ca.tar.gz
 ```
 
-```geth.json
-{
-    "config": {
-          "chainId": 43282,
-          "homesteadBlock": 0,
-          "eip150Block": 0,
-          "eip155Block": 0,
-          "eip158Block": 0
-      },
-    "alloc"      : {
-	    "0xa680FF3154354E6B0883a1C2b31Ac5b1efb0baE8":{
-	    	"balance": "0x1000000000000000000"
-	    }
-    },
-    "coinbase"   : "0x0000000000000000000000000000000000000000",
-    "difficulty" : "0x20000",
-    "extraData"  : "",
-    "gasLimit"   : "0x2fefd8",
-    "nonce"      : "0x0000000000000042",
-    "mixhash"    : "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "parentHash" : "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "timestamp"  : "0x00"
-}
-```
-
 ```bash
 cat <<EOF >> ~/geth.json
 {
