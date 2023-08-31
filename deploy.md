@@ -41,11 +41,13 @@ rm -rf geth-linux-amd64-1.11.6-ea9e62ca.tar.gz
 cat <<EOF >> ~/geth.json
 {
     "config": {
-          "chainId": 43282,
-          "homesteadBlock": 0,
-          "eip150Block": 0,
-          "eip155Block": 0,
-          "eip158Block": 0
+            "chainId": 43285,
+            "homesteadBlock": 0,
+            "byzantiumBlock": 0,
+            "constantinopleBlock": 0
+            "eip150Block": 0,
+            "eip155Block": 0,
+            "eip158Block": 0
       },
     "alloc"      : {
 	    "0xa680FF3154354E6B0883a1C2b31Ac5b1efb0baE8":{
@@ -63,14 +65,14 @@ cat <<EOF >> ~/geth.json
 }
 EOF
 
-geth --datadir ~/nodedata --networkid 43282 init ~/geth.json
+geth --datadir ~/nodedata --networkid 43285 init ~/geth.json
 geth --datadir ~/nodedata account new # 生成密码 passwd
 cat <<EOF >> ~/passwd
 passwd
 EOF
 
 cat <<EOF >> ~/start.sh
-geth  --ethash.cachedir ~/Ethash --ethash.dagdir ~/Ethash --allow-insecure-unlock  --unlock=0  --password  ~/passwd  --networkid  43282  --datadir  ~/nodedata  --http --http.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --http.corsdomain="*" --http.port=8545 --http.addr="0.0.0.0"  --ws --ws.addr "0.0.0.0" --ws.port=8546 --ws.origins "*" --ws.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --mine --miner.threads=2 --miner.etherbase="0x9feee155032dCcD5F090299416E02f986919E1ad" --syncmode full console
+geth  --ethash.cachedir ~/Ethash --ethash.dagdir ~/Ethash --allow-insecure-unlock  --unlock=0  --password  ~/passwd  --networkid  43285  --datadir  ~/nodedata  --http --http.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --http.corsdomain="*" --http.port=8545 --http.addr="0.0.0.0"  --ws --ws.addr "0.0.0.0" --ws.port=8546 --ws.origins "*" --ws.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --mine --miner.threads=2 --miner.etherbase="0x9feee155032dCcD5F090299416E02f986919E1ad" --syncmode full console
 EOF
 
 chmod +x ~/start.sh
@@ -120,4 +122,9 @@ geth attach http://192.168.111.119:8545 # 需要使用http协议进入,因为上
 eth.accounts # 获取所有账户
 personal.newAccount() # 测试用密码都设置成passwd
 
+```
+
+# 部署
+```
+npx hardhat run --network private scripts/deploy.js
 ```
