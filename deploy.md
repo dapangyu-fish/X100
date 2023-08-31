@@ -23,8 +23,8 @@ cat <<EOF >> ~/geth.json
             "eip150Block": 0,
             "eip155Block": 0,
             "eip158Block": 0
-      },
-    "alloc"      : {
+    },
+    "alloc": {
 	    "0xa680FF3154354E6B0883a1C2b31Ac5b1efb0baE8":{
 	    	"balance": "0x1000000000000000000"
 	    }
