@@ -46,11 +46,11 @@ cat <<EOF >> ~/passwd
 passwd
 EOF
 
-cat <<EOF >> ~/start.sh
+cat <<EOF >> ~/start_geth.sh
 geth  --ethash.cachedir ~/Ethash --ethash.dagdir ~/Ethash --allow-insecure-unlock  --unlock=0  --password  ~/passwd  --networkid  43285  --datadir  ~/nodedata  --http --http.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --http.corsdomain="*" --http.port=8545 --http.addr="0.0.0.0"  --ws --ws.addr "0.0.0.0" --ws.port=8546 --ws.origins "*" --ws.api "admin,debug,web3,eth,txpool,personal,ethash,miner,net" --mine --miner.threads=2 --miner.etherbase="0x9feee155032dCcD5F090299416E02f986919E1ad" --syncmode full console
 EOF
 
-chmod +x ~/start.sh
+chmod +x ~/start_geth.sh
 
 screen -R geth
 bash
