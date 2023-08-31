@@ -121,3 +121,8 @@ eth.accounts # 获取所有账户
 personal.newAccount() # 测试用密码都设置成passwd
 
 ```
+
+# 部署
+```
+npx hardhat run --network private scripts/deploy.js
+```
