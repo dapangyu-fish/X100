@@ -90,8 +90,19 @@ export const TransactionProvider = ({ children }) => {
             await transactionHash.wait();
             setIsLoading(false);
             console.log(`Success - ${transactionHash.hash}`);
+            const currentTransactionCount = await transactionContract.getTransactionsCount();
+            console.log(`currentTransactionCount - ${currentTransactionCount}`);
+
             const testNumber = await transactionContract.getTestNumber();
-            console.log(`testNumber - ${testNumber}`);
+            console.log(`currentgetTestNumber - ${testNumber}`);
+            console.log(`hello ---`);
+
+            // const contractInstance = new web3.eth.Contract(contractABI, contractAddress);
+
+            // const result = await contractInstance.methods.getTestNumber().call();
+            // console.log(result);
+            
+            console.log(`hello @@@`);
 
 
             const availableTransactions = await transactionContract.getAllTransactions();
