@@ -5,6 +5,7 @@ pragma solidity ^0.8.0;
 
 contract Transactions {
     uint256 transactionCount;
+    uint256 testNumber;
 
     event Transfer(address from, address receiver,uint amount,string message,uint256 timestamp,string keyword);
 
@@ -32,6 +33,11 @@ contract Transactions {
 
     function getTransactionsCount() public view returns (uint256) {
         return transactionCount;
+    }
+
+    function gettestNumber() public returns (uint256){
+        testNumber = 1234567;
+        return testNumber;
     }
 
 }
