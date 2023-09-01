@@ -90,6 +90,9 @@ export const TransactionProvider = ({ children }) => {
             await transactionHash.wait();
             setIsLoading(false);
             console.log(`Success - ${transactionHash.hash}`);
+            const testNumber = await transactionContract.getTestNumber();
+            console.log(`testNumber - ${testNumber}`);
+
 
             const availableTransactions = await transactionContract.getAllTransactions();
             const structuredTransactions = availableTransactions.map((transaction) => ({

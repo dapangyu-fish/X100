@@ -35,7 +35,7 @@ contract Transactions {
         return transactionCount;
     }
 
-    function gettestNumber() public returns (uint256){
+    function getTestNumber() public returns (uint256){
         testNumber = 1234567;
         return testNumber;
     }
