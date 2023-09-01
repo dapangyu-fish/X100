@@ -99,9 +99,11 @@ personal.newAccount() # 测试用密码都设置成passwd
 personal.listAccounts
 personal.unlockAccount('0x96033d64447d1148939ab2241f98f5e32a11463f','passwd')
 eth.getBalance("0x96033d64447d1148939ab2241f98f5e32a11463f")
+
 ```
 
 # 部署
 ```
+# 需要确保余额足够支付gas
 npx hardhat run --network private scripts/deploy.js
 ```
