@@ -1,4 +1,3 @@
-
 # 部署geth
 ```bash
 docker run -itd --restart=always --net=host --name=geth-01 ubuntu
@@ -106,4 +105,16 @@ eth.getBalance("0x96033d64447d1148939ab2241f98f5e32a11463f")
 ```
 # 需要确保余额足够支付gas
 npx hardhat run --network private scripts/deploy.js
+```
+
+# 部署uniswap
+## ubuntu 20.04
+## node v16.13.0
+## npm 8.1.4
+## yarn 1.22.17
+```
+docker run -itd --restart=always --net=host --name=uniswap-v2 ubuntu
+docker exec -it uniswap-v2 bash
+apt update && apt install wget vim screen curl -y
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
 ```
