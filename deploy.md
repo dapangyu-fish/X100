@@ -122,4 +122,10 @@ nvm install 16.13
 npm install -g yarn@1.22.17
 apt install git -y
 git clone https://github.com/33357/uniswap-v2-contract
+
+cat <<EOF >> /envs/env.rinkeby
+PRIVATE_KEY=25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e
+RINKEBY_INFURA="http://192.168.111.119:8545"
+EOF
 ```
+yarn && yarn build
