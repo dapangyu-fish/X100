@@ -119,4 +119,5 @@ apt update && apt install wget vim screen curl -y
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
 source ~/.bashrc   
 nvm install 16.13
+npm install -g yarn@1.22.17
 ```
