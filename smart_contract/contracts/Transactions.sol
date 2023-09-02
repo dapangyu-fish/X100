@@ -35,8 +35,15 @@ contract Transactions {
         return transactionCount;
     }
 
-    function gettestNumber() public returns (uint256){
-        testNumber = 1234567;
+    function addTestNumber() public {
+        testNumber +=5;
+    }
+
+    function setTestNumber(uint256 amount) public {
+        testNumber = amount;
+    }
+
+    function getTestNumber() public view returns (uint256){
         return testNumber;
     }
 
