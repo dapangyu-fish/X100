@@ -78,13 +78,14 @@ export const TransactionProvider = ({ children }) => {
             
 
             console.log('===========');
-            console.log(addressTo);
-            console.log(parsedAmount);
-            console.log(parsedAmount._hex);
+            console.log(`addressTo - ${addressTo}`);
+            console.log(`parsedAmount - ${parsedAmount}`);
+            console.log(`parsedAmount - ${parsedAmount._hex}`);
             console.log('###########');
 
             const transactionHash = await transactionContract.addToBlockchain(addressTo, parsedAmount, message, keyword);
-
+            await transactionContract.addTestNumber();
+            const testNumber = await transactionContract.getTestNumber();
             setIsLoading(true);
             console.log(`loading - ${transactionHash.hash}`);
             await transactionHash.wait();
@@ -92,8 +93,7 @@ export const TransactionProvider = ({ children }) => {
             console.log(`Success - ${transactionHash.hash}`);
             const currentTransactionCount = await transactionContract.getTransactionsCount();
             console.log(`currentTransactionCount - ${currentTransactionCount}`);
-
-            const testNumber = await transactionContract.getTestNumber();
+            await transactionContract.setTestNumber(0);
             console.log(`currentgetTestNumber - ${testNumber}`);
             console.log(`hello ---`);
 
