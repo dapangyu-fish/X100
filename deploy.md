@@ -107,7 +107,7 @@ eth.getBalance("0x96033d64447d1148939ab2241f98f5e32a11463f")
 npx hardhat run --network private scripts/deploy.js
 ```
 
-# 部署uniswap
+# 部署uniswap 合约
 ## ubuntu 20.04
 ## node v16.13.0
 ## npm 8.1.4
@@ -127,5 +127,17 @@ cat <<EOF >> /envs/env.rinkeby
 PRIVATE_KEY=25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e
 RINKEBY_INFURA="http://192.168.111.119:8545"
 EOF
-```
 yarn && yarn build
+```
+
+# 部署uniswap 前端
+```
+git clone https://github.com/33357/uniswap-v2-interface
+# 修改package.json
+# "devDependencies": {
+#    "@ethersproject/experimental": "^5.0.1",
+#    "@fish/uniswap-v2-sdk": 替换为自己的发布版本,
+
+yarn && yarn start
+
+```
