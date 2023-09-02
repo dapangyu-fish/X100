@@ -117,4 +117,6 @@ docker run -itd --restart=always --net=host --name=uniswap-v2 ubuntu
 docker exec -it uniswap-v2 bash
 apt update && apt install wget vim screen curl -y
 curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+source ~/.bashrc   
+nvm install 16.13
 ```
