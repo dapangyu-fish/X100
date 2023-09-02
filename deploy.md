@@ -120,4 +120,6 @@ curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 source ~/.bashrc   
 nvm install 16.13
 npm install -g yarn@1.22.17
+apt install git -y
+git clone https://github.com/33357/uniswap-v2-contract
 ```
