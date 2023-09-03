@@ -139,5 +139,11 @@ git clone https://github.com/33357/uniswap-v2-interface
 #    "@fish/uniswap-v2-sdk": 替换为自己的发布版本,
 
 yarn && yarn start
+export ENV_FILE='./envs/env.rinkeby'
+export NETWORK_ID=localhost
+export WAIT_NUM=1
+export GAS_PRICE=3
+
+yarn run env-cmd -f $ENV_FILE yarn run hardhat UniswapV2:deploy --gas-price $GAS_PRICE --wait-num $WAIT_NUM --network $NETWORK_ID
 
 ```
