@@ -125,6 +125,7 @@ git clone https://github.com/33357/uniswap-v2-contract
 
 cd uniswap-v2-contract
 mkdir envs
+mkdir logs ## 不创建该目录部署合约 yarn run env-cmd xxx时 会直接报错
 cat <<EOF >> ./envs/env.rinkeby
 PRIVATE_KEY=25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e
 RINKEBY_INFURA="http://192.168.111.119:8545"
