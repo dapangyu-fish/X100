@@ -133,13 +133,15 @@ EOF
 yarn && yarn build
 
 export ENV_FILE='./envs/env.rinkeby'
-export NETWORK_ID=localhost
+export NETWORK_ID=localhost ## 私有网络需要修改为localhost，具体配置在hardhat.config.ts中
 export WAIT_NUM=1
 export GAS_PRICE=3
 
 yarn run env-cmd -f $ENV_FILE yarn run hardhat UniswapV2:deploy --gas-price $GAS_PRICE --wait-num $WAIT_NUM --network $NETWORK_ID
 
 ```
+## 部署成功见下图
+![Alt text](image.png)
 
 # 部署uniswap 前端
 ```
