@@ -47,4 +47,16 @@ contract Transactions {
         return testNumber;
     }
 
+    function draw(uint32 probability) public view returns (uint8) {
+        require(probability <= 100000000, "Invalid probability"); // 检查概率是否合法
+
+        uint random = uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % 100000000; // 生成一个在 0 到 99999999 之间的伪随机数
+
+        if (random < probability) {
+            return 1; // 中奖
+        } else {
+            return 0; // 未中奖
+        }
+    }
+
 }
