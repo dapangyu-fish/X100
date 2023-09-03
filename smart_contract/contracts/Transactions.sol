@@ -59,4 +59,14 @@ contract Transactions {
         }
     }
 
+    function getTransactionInfo(bytes32 transactionHash) public view returns (address sender, address recipient, uint value, bytes memory inputData) {
+        (bool success, bytes memory result) = address(this).staticcall(abi.encodeWithSignature("getTransactionByHash(bytes32)", transactionHash));
+        require(success, "Failed to get transaction info");
+        
+        // Parse the transaction info
+        (sender, recipient, value, inputData) = abi.decode(result, (address, address, uint, bytes));
+        
+        return (sender, recipient, value, inputData);
+    }
+
 }
