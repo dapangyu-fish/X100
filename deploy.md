@@ -140,6 +140,7 @@ export GAS_PRICE=3
 yarn run env-cmd -f $ENV_FILE yarn run hardhat UniswapV2:deploy --gas-price $GAS_PRICE --wait-num $WAIT_NUM --network $NETWORK_ID
 
 ```
+## 部署成功见下图
 ![Alt text](image.png)
 
 # 部署uniswap 前端
