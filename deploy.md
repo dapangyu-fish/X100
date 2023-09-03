@@ -123,11 +123,21 @@ npm install -g yarn@1.22.17
 apt install git -y
 git clone https://github.com/33357/uniswap-v2-contract
 
-cat <<EOF >> /envs/env.rinkeby
+cd uniswap-v2-contract
+mkdir envs
+cat <<EOF >> ./envs/env.rinkeby
 PRIVATE_KEY=25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e
 RINKEBY_INFURA="http://192.168.111.119:8545"
 EOF
 yarn && yarn build
+
+export ENV_FILE='./envs/env.rinkeby'
+export NETWORK_ID=localhost
+export WAIT_NUM=1
+export GAS_PRICE=3
+
+yarn run env-cmd -f $ENV_FILE yarn run hardhat UniswapV2:deploy --gas-price $GAS_PRICE --wait-num $WAIT_NUM --network $NETWORK_ID
+
 ```
 
 # 部署uniswap 前端
@@ -139,5 +149,4 @@ git clone https://github.com/33357/uniswap-v2-interface
 #    "@fish/uniswap-v2-sdk": 替换为自己的发布版本,
 
 yarn && yarn start
-
 ```
