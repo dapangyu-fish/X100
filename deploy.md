@@ -133,7 +133,7 @@ EOF
 yarn && yarn build
 
 export ENV_FILE='./envs/env.rinkeby'
-export NETWORK_ID=localhost
+export NETWORK_ID=localhost ## 私有网络需要修改为localhost，具体配置在hardhat.config.ts中
 export WAIT_NUM=1
 export GAS_PRICE=3
 
