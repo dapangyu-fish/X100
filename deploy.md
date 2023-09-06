@@ -163,7 +163,7 @@ git clone https://github.com/33357/uniswap-v2-interface
 # 修改package.json
 # "devDependencies": {
 #    "@ethersproject/experimental": "^5.0.1",
-#    "@fish/uniswap-v2-sdk": 替换为自己的发布版本,
+#    "@dapangyu-fish/uniswap-v2-sdk": 替换为自己的发布版本,
 
 yarn && yarn start
 ```
