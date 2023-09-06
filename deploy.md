@@ -140,6 +140,8 @@ export GAS_PRICE=3
 yarn run env-cmd -f $ENV_FILE yarn run hardhat UniswapV2:deploy --gas-price $GAS_PRICE --wait-num $WAIT_NUM --network $NETWORK_ID
 cd sdk 
 
+yarn && yarn build
+
 # 修改package.json
 #{
 #  "name": "@dapangyu-fish/uniswap-v2-sdk",
@@ -153,6 +155,8 @@ cd sdk
 #    "access": "public"
 #  }
 
+yarn publish 
+# 已发布至 https://www.npmjs.com/package/@dapangyu-fish/uniswap-v2-sdk
 ```
 ## 部署成功见下图
 ![Alt text](image.png)
