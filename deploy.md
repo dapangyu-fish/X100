@@ -65,7 +65,7 @@ mkdir ~/deploy
 cd ~/deploy
 git clone https://github.com/blockscout/blockscout
 
-cat <<EOF >> ~/start_blockscout.sh
+cat <<EOF > ~/start_blockscout.sh
 export COIN=ETH
 export ETHEREUM_JSONRPC_VARIANT=geth
 export ETHEREUM_JSONRPC_HTTP_URL="http://192.168.111.119:8545"
@@ -152,7 +152,7 @@ yarn && yarn build
 # 尾部追加公开配置选项 否则无法推送
 
 #  "publishConfig": {
-#    "access": "public"
+#    "access": "
 #  }
 
 yarn publish 
@@ -170,4 +170,9 @@ git clone https://github.com/dapangyu-fish/uniswap-v2-interface
 #    "@dapangyu-fish/uniswap-v2-sdk": "3.0.12" 替换为自己的发布版本,
 
 yarn && yarn start
+```
+
+# 部署uniswap v3 
+```
+npx @dapangyu-fish/deploy-v3 -pk 0x25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e -j http://192.168.111.119:8545 -g 1 -w9 0xda6Ab855963bB57adaCcA8428448e4638C1342cf  --native-currency-label "ETH" --owner-address 0xda6Ab855963bB57adaCcA8428448e4638C1342cf
 ```
