@@ -138,6 +138,20 @@ export WAIT_NUM=1
 export GAS_PRICE=3
 
 yarn run env-cmd -f $ENV_FILE yarn run hardhat UniswapV2:deploy --gas-price $GAS_PRICE --wait-num $WAIT_NUM --network $NETWORK_ID
+cd sdk 
+
+# 修改package.json
+#{
+#  "name": "@dapangyu-fish/uniswap-v2-sdk",
+#  "license": "MIT",
+#  "version": "3.0.12",
+#  "description": "🛠 An SDK for building applications on top of Uniswap.",
+# ......
+# 尾部追加公开配置选项 否则无法推送
+
+#  "publishConfig": {
+#    "access": "public"
+#  }
 
 ```
 ## 部署成功见下图
