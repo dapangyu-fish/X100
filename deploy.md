@@ -163,7 +163,7 @@ yarn publish
 
 # 部署uniswap 前端
 ```
-git clone https://github.com/33357/uniswap-v2-interface
+git clone https://github.com/dapangyu-fish/uniswap-v2-interface
 # 修改package.json
 # "devDependencies": {
 #    "@ethersproject/experimental": "^5.0.1",
