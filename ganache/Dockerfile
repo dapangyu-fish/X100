@@ -39,8 +39,10 @@ ENV NVM_DIR="$HOME/.nvm"
 RUN touch /entrypoint.sh && chmod +x /entrypoint.sh && \
                             echo "#!/usr/bin/env bash" >> /entrypoint.sh && \
                             echo "git lfs install" >> /entrypoint.sh && \
-                            echo "source ~/.bashrc" >> /entrypoint.sh && \
-                            echo "\. '$NVM_DIR/nvm.sh'" >> /entrypoint.sh && \                    
+                            echo "[ -s '$HOME/.nvm/nvm.sh' ]" >> /entrypoint.sh && \
+                            echo "\. '$HOME/.nvm/nvm.sh'" >> /entrypoint.sh && \
+                            echo "[ -s '$HOME/.nvm/bash_completion' ]" >> /entrypoint.sh && \
+                            echo "\. '$HOME/.nvm/bash_completion'" >> /entrypoint.sh && \               
                             echo "ganache" >> /entrypoint.sh && \
                             echo "if [ \$# -eq 0 ]; then" >> /entrypoint.sh && \
                             echo "  echo \"No command, running /bin/bash as default.\"" >> /entrypoint.sh && \
