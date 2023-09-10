@@ -79,6 +79,7 @@ export ECTO_USE_SSL=false
 make start
 EOF
 
+chmod +x ~/start_blockscout.sh
 
 screen -R blockscout
 bash
