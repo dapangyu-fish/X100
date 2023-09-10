@@ -68,9 +68,9 @@ git clone https://github.com/blockscout/blockscout
 cat <<EOF > ~/start_blockscout.sh
 export COIN=ETH
 export ETHEREUM_JSONRPC_VARIANT=geth
-export ETHEREUM_JSONRPC_HTTP_URL="http://192.168.111.119:8545"
-export ETHEREUM_JSONRPC_WS_URL="ws://192.168.111.119:8546"
-export ETHEREUM_JSONRPC_TRACE_URL="http://192.168.111.119:8545"
+export ETHEREUM_JSONRPC_HTTP_URL="http://127.0.0.1:18545"
+export ETHEREUM_JSONRPC_WS_URL="ws://127.0.0.1:18545"
+export ETHEREUM_JSONRPC_TRACE_URL="http://127.0.0.1:18545"
 export BLOCK_TRANSFORMER=base
 export NETWORK=Ethereum
 export SUBNETWORK=ETH
@@ -79,6 +79,7 @@ export ECTO_USE_SSL=false
 make start
 EOF
 
+chmod +x ~/start_blockscout.sh
 
 screen -R blockscout
 bash
