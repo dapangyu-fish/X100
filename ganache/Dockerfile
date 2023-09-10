@@ -18,4 +18,4 @@ ENV NVM_DIR="$HOME/.nvm"
 
 EXPOSE 8545
 
-ENTRYPOINT ["ganache"]
+ENTRYPOINT ["ganache","--server.host=0.0.0.0","--server.port=8545","--server.ws=true"]
