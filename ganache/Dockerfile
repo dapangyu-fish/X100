@@ -29,6 +29,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
     [ -s "$NVM_DIR/bash_completion" ] && \
     \. "$NVM_DIR/bash_completion" && \
     nvm install 18 && \
+    nvm use 18 && \
     npm install ganache --global
 
 ENV NVM_DIR="$HOME/.nvm"
@@ -42,7 +43,8 @@ RUN touch /entrypoint.sh && chmod +x /entrypoint.sh && \
                             echo "[ -s '$HOME/.nvm/nvm.sh' ]" >> /entrypoint.sh && \
                             echo "\. '$HOME/.nvm/nvm.sh'" >> /entrypoint.sh && \
                             echo "[ -s '$HOME/.nvm/bash_completion' ]" >> /entrypoint.sh && \
-                            echo "\. '$HOME/.nvm/bash_completion'" >> /entrypoint.sh && \               
+                            echo "\. '$HOME/.nvm/bash_completion'" >> /entrypoint.sh && \  
+                            echo "nvm use 18" >> /entrypoint.sh && \               
                             echo "ganache" >> /entrypoint.sh && \
                             echo "if [ \$# -eq 0 ]; then" >> /entrypoint.sh && \
                             echo "  echo \"No command, running /bin/bash as default.\"" >> /entrypoint.sh && \
