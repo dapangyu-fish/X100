@@ -176,3 +176,8 @@ yarn && yarn start
 ```
 npx @dapangyu-fish/deploy-v3 -pk 0x25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e -j http://192.168.111.119:8545 -g 1 -w9 0xda6Ab855963bB57adaCcA8428448e4638C1342cf  --native-currency-label "ETH" --owner-address 0xda6Ab855963bB57adaCcA8428448e4638C1342cf
 ```
+
+## use hardhat
+```
+npx hardhat node --fork https://mainnet.infura.io/v3/<key>
+```
