@@ -68,9 +68,9 @@ git clone https://github.com/blockscout/blockscout
 cat <<EOF > ~/start_blockscout.sh
 export COIN=ETH
 export ETHEREUM_JSONRPC_VARIANT=geth
-export ETHEREUM_JSONRPC_HTTP_URL="http://192.168.111.119:8545"
-export ETHEREUM_JSONRPC_WS_URL="ws://192.168.111.119:8546"
-export ETHEREUM_JSONRPC_TRACE_URL="http://192.168.111.119:8545"
+export ETHEREUM_JSONRPC_HTTP_URL="http://127.0.0.1:18545"
+export ETHEREUM_JSONRPC_WS_URL="ws://127.0.0.1:18545"
+export ETHEREUM_JSONRPC_TRACE_URL="http://127.0.0.1:18545"
 export BLOCK_TRANSFORMER=base
 export NETWORK=Ethereum
 export SUBNETWORK=ETH
@@ -79,6 +79,7 @@ export ECTO_USE_SSL=false
 make start
 EOF
 
+chmod +x ~/start_blockscout.sh
 
 screen -R blockscout
 bash
@@ -177,6 +178,19 @@ yarn && yarn start
 npx @dapangyu-fish/deploy-v3 -pk 0x25b9735a1e41a9f0261aff89ad178d624e7c22784627693c8142fb62c5b3ba2e -j http://192.168.111.119:8545 -g 1 -w9 0xda6Ab855963bB57adaCcA8428448e4638C1342cf  --native-currency-label "ETH" --owner-address 0xda6Ab855963bB57adaCcA8428448e4638C1342cf
 ```
 
+# 部署ganache
+```bash
+docker run -itd --restart=always --net=host --name=ganache ubuntu
+docker exec -it ganache bash
+#!/bin/bash
+apt update && apt install wget vim screen curl -y
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+source ~/.bashrc   
+nvm install 18
+npm install ganache --global
+## screen -R ganache
+
+```
 ## use hardhat
 ```
 npx hardhat node --fork https://mainnet.infura.io/v3/<key>
